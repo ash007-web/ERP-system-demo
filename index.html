@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP System Demo - Centralized Business Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="2" y="2" width="28" height="28" rx="4" stroke="#ffffff" stroke-width="2"/>
+                    <path d="M8 12h16M8 16h16M8 20h10" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>ERP System Demo</span>
+            </div>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="icon-btn" title="Toggle Dark Mode">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item active" data-module="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-module="sales">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                    </svg>
+                    <span>Sales</span>
+                </li>
+                <li class="nav-item" data-module="inventory">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/>
+                        <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Inventory</span>
+                </li>
+                <li class="nav-item" data-module="hr">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                    </svg>
+                    <span>HR Management</span>
+                </li>
+                <li class="nav-item" data-module="analytics">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                    </svg>
+                    <span>Analytics</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Module -->
+            <section id="dashboard" class="module active">
+                <h1 class="module-title">Dashboard Overview</h1>
+                <p class="module-subtitle">Centralized view of your business metrics</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Total Revenue</div>
+                            <div class="metric-value" id="dashRevenue">₹0</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 12h10v2H7v-2z"/>
+                            </svg>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Total Sales</div>
+                            <div class="metric-value" id="dashSales">0</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 4h4v3h-4V4zm10 16H4V9h16v11z"/>
+                            </svg>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Inventory Items</div>
+                            <div class="metric-value" id="dashInventory">0</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Employee Attendance</div>
+                            <div class="metric-value" id="dashAttendance">0%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h2 class="section-title">Sales Performance</h2>
+                    <div class="chart-container" id="salesChart">
+                        <!-- Chart bars will be generated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sales Module -->
+            <section id="sales" class="module">
+                <h1 class="module-title">Sales Management</h1>
+                <p class="module-subtitle">Track and manage sales transactions</p>
+
+                <div class="form-card">
+                    <h2 class="section-title">Add New Sale</h2>
+                    <form id="salesForm" class="erp-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="saleProduct">Product</label>
+                                <select id="saleProduct" required>
+                                    <option value="">Select Product</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="saleQuantity">Quantity</label>
+                                <input type="number" id="saleQuantity" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="salePrice">Price per Unit (₹)</label>
+                                <input type="number" id="salePrice" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="saleCustomer">Customer Name</label>
+                                <input type="text" id="saleCustomer" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Sale</button>
+                    </form>
+                </div>
+
+                <div class="table-card">
+                    <h2 class="section-title">Sales Records</h2>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th>Customer</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesTable">
+                                <!-- Sales rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inventory Module -->
+            <section id="inventory" class="module">
+                <h1 class="module-title">Inventory Management</h1>
+                <p class="module-subtitle">Monitor stock levels and product availability</p>
+
+                <div class="inventory-grid" id="inventoryGrid">
+                    <!-- Inventory cards will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- HR Module -->
+            <section id="hr" class="module">
+                <h1 class="module-title">HR Management</h1>
+                <p class="module-subtitle">Employee attendance and productivity tracking</p>
+
+                <div class="form-card">
+                    <h2 class="section-title">Mark Attendance</h2>
+                    <form id="attendanceForm" class="erp-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="empName">Employee Name</label>
+                                <input type="text" id="empName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empDate">Date</label>
+                                <input type="date" id="empDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empStatus">Status</label>
+                                <select id="empStatus" required>
+                                    <option value="Present">Present</option>
+                                    <option value="Absent">Absent</option>
+                                    <option value="Half Day">Half Day</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="empHours">Hours Worked</label>
+                                <input type="number" id="empHours" min="0" max="24" step="0.5" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Mark Attendance</button>
+                    </form>
+                </div>
+
+                <div class="table-card">
+                    <h2 class="section-title">Attendance Records</h2>
+                    <div class="productivity-info">
+                        <div class="productivity-metric">
+                            <span class="productivity-label">Average Productivity:</span>
+                            <span class="productivity-value" id="productivityValue">0%</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Employee</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Hours</th>
+                                    <th>Productivity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attendanceTable">
+                                <!-- Attendance rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Module -->
+            <section id="analytics" class="module">
+                <h1 class="module-title">Analytics & Correlation</h1>
+                <p class="module-subtitle">Statistical analysis and correlation between business metrics</p>
+
+                <div class="analytics-container">
+                    <div class="correlation-card">
+                        <h2 class="section-title">Correlation Analysis</h2>
+                        <p class="info-text">Select two variables to calculate Pearson correlation coefficient</p>
+                        
+                        <div class="correlation-form">
+                            <div class="form-group">
+                                <label for="var1">Variable 1</label>
+                                <select id="var1" required>
+                                    <option value="sales">Sales Quantity</option>
+                                    <option value="revenue">Revenue</option>
+                                    <option value="inventory">Inventory Stock</option>
+                                    <option value="attendance">Attendance Rate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="var2">Variable 2</label>
+                                <select id="var2" required>
+                                    <option value="revenue" selected>Revenue</option>
+                                    <option value="sales">Sales Quantity</option>
+                                    <option value="inventory">Inventory Stock</option>
+                                    <option value="attendance">Attendance Rate</option>
+                                </select>
+                            </div>
+                            <button id="calculateCorrelation" class="btn btn-primary">Calculate Correlation</button>
+                        </div>
+
+                        <div id="correlationResult" class="correlation-result" style="display: none;">
+                            <div class="result-header">
+                                <h3>Correlation Result</h3>
+                            </div>
+                            <div class="result-content">
+                                <div class="correlation-value">
+                                    <span class="correlation-label">r =</span>
+                                    <span id="rValue" class="r-value">0.000</span>
+                                </div>
+                                <div id="correlationInterpretation" class="correlation-interpretation"></div>
+                                <div id="correlationGraph" class="correlation-graph"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h2 class="section-title">Understanding Correlation in ERP</h2>
+                        <div class="info-content">
+                            <p><strong>What is Correlation?</strong></p>
+                            <p>Correlation measures the statistical relationship between two variables in the ERP system.</p>
+                            
+                            <p><strong>Interpretation Guide:</strong></p>
+                            <ul class="interpretation-list">
+                                <li><span class="badge badge-success">0.7 to 1.0</span> Strong Positive Correlation</li>
+                                <li><span class="badge badge-info">0.3 to 0.7</span> Moderate Positive Correlation</li>
+                                <li><span class="badge badge-warning">0 to 0.3</span> Weak Positive Correlation</li>
+                                <li><span class="badge badge-error">-1.0 to 0</span> Negative Correlation</li>
+                            </ul>
+                            
+                            <p><strong>Business Insights:</strong></p>
+                            <p>Correlation analysis helps identify relationships like:</p>
+                            <ul class="interpretation-list">
+                                <li>How sales affect inventory levels</li>
+                                <li>Impact of attendance on productivity</li>
+                                <li>Relationship between sales and revenue</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
